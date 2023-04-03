@@ -11,7 +11,7 @@ namespace AuthorizationCianPageTests.PageObjects
     {
         private IWebDriver driver;
         private readonly By _sortByListButton = By.XPath("//div[@data-name='SortFilter']");
-        private readonly By _allTheSorts = By.XPath("//*[@role='option']");
+        private readonly By _allTheSorts = By.CssSelector("._9400a595a7--item-wrapper"); //By.XPath("//*[@role='option']");
 
         public DirectoryOfSpecialistsPageObject(IWebDriver driver)
         {
@@ -24,7 +24,7 @@ namespace AuthorizationCianPageTests.PageObjects
             driver.FindElement(_sortByListButton).Click();
 
             WaitUntil.WaitSomeInterval(2);
-            var sortBy = driver.FindElements(_allTheSorts).FirstOrDefault(x => x.Text == nameSort);
+            var sortBy = driver.FindElements(_allTheSorts).First(x => x.Text == nameSort); //FirstOrDefault
             sortBy.Click();
 
             return this;

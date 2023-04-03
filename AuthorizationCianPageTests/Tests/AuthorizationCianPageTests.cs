@@ -67,7 +67,7 @@ namespace AuthorizationCianPageTests.Tests
 
             mainMenuPage
                 .NavigateToDirectoryOfSpecialists()
-                .SearchSortBy(NameSort.ByNumberOfAdsSort);
+                .SearchSortBy(NameSort.ByStandartSort);
         }
 
         [Test]
