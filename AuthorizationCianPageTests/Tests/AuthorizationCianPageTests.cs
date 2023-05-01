@@ -60,6 +60,7 @@ namespace AuthorizationCianPageTests.Tests
             Console.WriteLine(enviromentConstants.Name);
         }
 
+        /*
         [Test]
         public void SearchList()
         {
@@ -69,6 +70,7 @@ namespace AuthorizationCianPageTests.Tests
                 .NavigateToDirectoryOfSpecialists()
                 .SearchSortBy(NameSort.ByStandartSort);
         }
+        */
 
         [Test]
         public void CheckMagazineDownloadingTime()

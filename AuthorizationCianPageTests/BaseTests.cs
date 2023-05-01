@@ -17,8 +17,17 @@ namespace AuthorizationCianPageTests
         protected void DoBeforeAllTests()
         {
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--incognito"); //start-fullscreen = f11
-            driver = new ChromeDriver(chromeOptions);
+            //chromeOptions.AddArguments(new List<string>() { "headless", "disable-gpu" }); //start-fullscreen = f11 //headless incognito
+            chromeOptions.AddArguments(new List<string>() {
+                                "--silent-launch",
+                                "--no-startup-window",
+                                "no-sandbox",
+                                "headless",});
+            //driver = new ChromeDriver(chromeOptions);
+            var chromeDriverService = ChromeDriverService.CreateDefaultService();
+            chromeDriverService.HideCommandPromptWindow = true;    // This is to hidden the console.
+            ChromeDriver driver = new ChromeDriver(chromeDriverService, chromeOptions);
+            driver.Navigate().GoToUrl(TestSettings.HostPrefix);
 
             InitializeData();
         }
